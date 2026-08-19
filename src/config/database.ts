@@ -1,15 +1,17 @@
-import { Pool } from "pg";
-import { nv } from "./env.ts";
+import pg from "pg";
+import { env } from "./env.ts";
+
+const { Pool } = pg
 
 const pool = new Pool({
-  host: configEnv.database.host,
-  port: configEnv.database.port,
-  database: configEnv.database.name,
-  user: configEnv.database.user,
-  password: configEnv.database.password,
+  host: env.database.host,
+  port: env.database.port,
+  database: env.database.name,
+  user: env.database.user,
+  password: env.database.password,
 });
 
-export const connectDatabase = async () => {
+export const connectDatabase = async ():Promise<void> => {
   try {
     await pool.query("SELECT 1");
     console.log("✅ Database connected");
