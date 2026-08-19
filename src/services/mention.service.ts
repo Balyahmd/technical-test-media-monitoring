@@ -1,7 +1,8 @@
 import pool from "../config/database.ts";
-import type { MentionInput } from "../types/mention.ts";
+import type { MentionInput, StatsGroupBy, MentionStats } from "../types/mention.ts";
 import type { Mention, MentionSearchQuery } from "../types/pagination.ts";
 import { normalizeMention } from "../utils/normalize.ts";
+
 
 export type BulkIngestResult = {
   inserted: MentionInput[];
