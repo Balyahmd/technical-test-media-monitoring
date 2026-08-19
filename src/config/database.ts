@@ -1,5 +1,5 @@
 import { Pool } from "pg";
-import { configEnv } from "./config.ts";
+import { nv } from "./env.ts";
 
 const pool = new Pool({
   host: configEnv.database.host,

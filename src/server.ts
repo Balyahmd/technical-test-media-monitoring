@@ -1,8 +1,8 @@
 import app from "./app.ts"
-import { configEnv } from "./config/config.ts";
+import { env } from "./config/env.ts";
 import { connectDatabase } from "./config/database.ts";
 
-const PORT = configEnv.port;
+const PORT = env.port;
 
 const startServer = async () => {
   await connectDatabase();

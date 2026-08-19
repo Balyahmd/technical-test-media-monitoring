@@ -1,6 +1,6 @@
 import "dotenv/config";
 
-export const configEnv = {
+export const env = {
   port: Number(process.env.PORT) || 3000,
 
   database: {
