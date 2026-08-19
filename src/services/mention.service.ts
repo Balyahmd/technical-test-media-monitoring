@@ -1,5 +1,9 @@
 import pool from "../config/database.ts";
-import type { MentionInput } from "../types/mention.ts";
+import type {
+  MentionInput,
+  StatsGroupBy,
+  MentionStats,
+} from "../types/mention.ts";
 import type { Mention, MentionSearchQuery } from "../types/pagination.ts";
 import { normalizeMention } from "../utils/normalize.ts";
 
@@ -125,4 +129,36 @@ export const searchMentions = async (
     data: result.rows,
     total: Number(countResult.rows[0].count),
   };
+};
+
+export const getMentionStats = async (
+  groupBy: StatsGroupBy,
+): Promise<MentionStats[]> => {
+  if (groupBy === "source") {
+    const result = await pool.query<MentionStats>(
+      `
+      SELECT
+        source AS label,
+        COUNT(*)::int AS count
+      FROM mentions
+      GROUP BY source
+      ORDER BY count DESC
+      `,
+    );
+
+    return result.rows;
+  }
+
+  const result = await pool.query<MentionStats>(
+    `
+    SELECT
+      DATE(published_at)::text AS label,
+      COUNT(*)::int AS count
+    FROM mentions
+    GROUP BY DATE(published_at)
+    ORDER BY DATE(published_at)
+    `,
+  );
+
+  return result.rows;
 };

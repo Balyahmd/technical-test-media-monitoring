@@ -19,3 +19,11 @@ export interface NormalizedMention {
     publishedAt: Date | null;
     engagement: number;
 }
+
+export type StatsGroupBy = "source" | "day";
+
+export interface mentionStats{
+    label: string;
+    count: number;
+}
+
