@@ -21,8 +21,7 @@ export interface NormalizedMention {
 }
 
 export type StatsGroupBy = "source" | "day";
-
-export interface mentionStats{
+export interface MentionStats{
     label: string;
     count: number;
 }
