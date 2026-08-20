@@ -153,13 +153,12 @@ Buat file `.env` berdasarkan `.env.example`.
 Contoh:
 
 ```env
-PORT=3000
-
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=media_monitoring
-DB_USER=postgres
-DB_PASSWORD=your_password
+PORT=your_port_project
+DB_HOST=you_host
+DB_PORT=your_por_db
+DB_NAME=your_name_db
+DB_USER=yout_user_db
+DB_PASSWORD=your_password_db
 ```
 
 Sesuaikan value dengan konfigurasi PostgreSQL lokal.
@@ -193,12 +192,6 @@ Migration digunakan agar perubahan schema database:
 
 ```bash
 npm run dev
-```
-
-Server akan berjalan pada:
-
-```text
-http://localhost:3000
 ```
 
 ## Build
