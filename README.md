@@ -126,14 +126,6 @@ Menggunakan npm:
 npm install
 ```
 
-atau menggunakan pnpm:
-
-```bash
-pnpm install
-```
-
----
-
 ## 3. Setup PostgreSQL
 
 Pastikan PostgreSQL sudah terinstall dan sedang berjalan.
